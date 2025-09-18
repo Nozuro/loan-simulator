@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LoanSim.Domain\LoanSim.Domain.csproj" />
-    <ProjectReference Include="..\LoanSim.Api\LoanSim.api.csproj" />
+    <ProjectReference Include="..\LoanSim.Api\LoanSim.Api.csproj" />
   </ItemGroup>
 
 </Project>
