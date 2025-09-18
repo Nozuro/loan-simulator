@@ -3,8 +3,8 @@ on:
   push:
     branches: [ main ]                    # change if your default branch differs
     paths:                                # only run when backend or this file changes
-      - "backend/**"
-      - ".github/workflows/api.yml"
+        - "backend/**"
+        - ".github/workflows/api.yml"
 
 permissions:
   id-token: write                         # REQUIRED for OIDC
@@ -12,14 +12,31 @@ permissions:
 
 jobs:
   build_test_deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest                            
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: "8.0.x"
+        with: { dotnet-version: "8.0.x" }
 
+      - name: Show repo tree (debug)
+        run: ls -R
+
+      - name: Locate solution & projects
+        id: find
+        run: |
+            SOLUTION=$(git ls-files "backend/*.sln" | head -n1)
+            API_PROJ=$(git ls-files "backend/**/*Api*.csproj" | head -n1)
+            TEST_PROJ=$(git ls-files "backend/**/*Tests*.csproj" | head -n1 || true)
+            echo "SOLUTION=$SOLUTION" >> $GITHUB_ENV
+            echo "API_PROJ=$API_PROJ" >> $GITHUB_ENV
+            echo "TEST_PROJ=$TEST_PROJ" >> $GITHUB_ENV
+            echo "Solution: $SOLUTION"
+            echo "API: $API_PROJ"
+            echo "Tests: $TEST_PROJ"
+
+
+          
       - run: dotnet restore ./backend
       - run: dotnet build ./backend -c Release --no-restore
       - run: dotnet test ./backend/LoanSim.Tests -c Release --no-build
@@ -30,12 +47,12 @@ jobs:
       - name: Azure Login (OIDC)
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}         # from your Entra app reg
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}         # from your Entra app reg
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy to App Service
         uses: azure/webapps-deploy@v3
         with:
-          app-name: app-loansim-api                          # your App Service name
-          package: ./publish
+            app-name: app-loansim-api                          # your App Service name
+            package: ./publish

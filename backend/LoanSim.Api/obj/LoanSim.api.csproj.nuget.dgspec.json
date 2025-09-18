@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nico\\Desktop\\Projects\\Programming\\loan-simulator\\backend\\LoanSim.Api\\LoanSim.api.csproj": {}
+    "C:\\Users\\Nico\\Desktop\\Projects\\Programming\\loan-simulator\\backend\\LoanSim.Api\\LoanSim.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nico\\Desktop\\Projects\\Programming\\loan-simulator\\backend\\LoanSim.Api\\LoanSim.api.csproj": {
+    "C:\\Users\\Nico\\Desktop\\Projects\\Programming\\loan-simulator\\backend\\LoanSim.Api\\LoanSim.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nico\\Desktop\\Projects\\Programming\\loan-simulator\\backend\\LoanSim.Api\\LoanSim.api.csproj",
-        "projectName": "LoanSim.api",
-        "projectPath": "C:\\Users\\Nico\\Desktop\\Projects\\Programming\\loan-simulator\\backend\\LoanSim.Api\\LoanSim.api.csproj",
+        "projectUniqueName": "C:\\Users\\Nico\\Desktop\\Projects\\Programming\\loan-simulator\\backend\\LoanSim.Api\\LoanSim.Api.csproj",
+        "projectName": "LoanSim.Api",
+        "projectPath": "C:\\Users\\Nico\\Desktop\\Projects\\Programming\\loan-simulator\\backend\\LoanSim.Api\\LoanSim.Api.csproj",
         "packagesPath": "C:\\Users\\Nico\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Nico\\Desktop\\Projects\\Programming\\loan-simulator\\backend\\LoanSim.Api\\obj\\",
         "projectStyle": "PackageReference",
