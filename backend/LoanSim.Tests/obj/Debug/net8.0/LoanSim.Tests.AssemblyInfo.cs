@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LoanSim.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+953254fd6a46af4d4f4748d1d3b50b154971925e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a5075856fa19a191f88fc6f23f99088f9181c4f")]
 [assembly: System.Reflection.AssemblyProductAttribute("LoanSim.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LoanSim.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
