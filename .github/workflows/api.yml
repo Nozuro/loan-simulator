@@ -1,0 +1,41 @@
+name: api-ci-cd
+on:
+  push:
+    branches: [ main ]                    # change if your default branch differs
+    paths:                                # only run when backend or this file changes
+      - "backend/**"
+      - ".github/workflows/api.yml"
+
+permissions:
+  id-token: write                         # REQUIRED for OIDC
+  contents: read
+
+jobs:
+  build_test_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - run: dotnet restore ./backend
+      - run: dotnet build ./backend -c Release --no-restore
+      - run: dotnet test ./backend/LoanSim.Tests -c Release --no-build
+
+      - name: Publish API
+        run: dotnet publish ./backend/LoanSim.Api -c Release -o ./publish
+
+      - name: Azure Login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}         # from your Entra app reg
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy to App Service
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: app-loansim-api                          # your App Service name
+          package: ./publish
