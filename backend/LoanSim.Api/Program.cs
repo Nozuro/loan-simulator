@@ -15,7 +15,7 @@ builder.Services.AddCors(o =>
     o.AddDefaultPolicy(p =>
         p.AllowAnyHeader().AllowAnyMethod().WithOrigins(
             builder.Configuration["ALLOW_ORIGINS"]?.Split(';', StringSplitOptions.RemoveEmptyEntries)
-             ?? new[] { "https://localhost:5173", "http://localhost:5173" }
+             ?? new[] { "https://victorious-river-0d8cb131e.1.azurestaticapps.net" }
         )
     )
 );
