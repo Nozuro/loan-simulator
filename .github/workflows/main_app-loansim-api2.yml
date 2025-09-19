@@ -39,7 +39,8 @@ jobs:
         run: dotnet publish ./backend/LoanSim.Api -c Release -o ./publish
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        # run: dotnet build --configuration Release
+        run: dotnet build ./backend/LoanSim.sln -c Release --no-restore
 
       - name: dotnet publish
         # run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
