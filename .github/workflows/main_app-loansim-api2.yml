@@ -21,19 +21,35 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.x'
+          dotnet-version: '8.0.x'
+
+      - name: Show tree
+        run: Get-ChildItem -Recurse -Depth 2
+
+      - name: Restore
+        run: dotnet restore ./backend
+      
+      - name: Build All
+        run: dotnet build ./backend -c Release --no-restore
+
+      - name: Run Tests  
+        run: dotnet test ./backend/LoanSim.Tests -c Release --no-build
+
+      - name: Publish API
+        run: dotnet publish ./backend/LoanSim.Api -c Release -o ./publish
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        # run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        run: dotnet publish ./backend/LoanSim.Api/LoanSim.Api.csproj -c Release -o "${{ runner.temp }}\publish"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          name: api-publish
+          path: ${{ runner.temp }}\publish
 
   deploy:
     runs-on: windows-latest
@@ -43,7 +59,8 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: .net-app
+          name: api-publish
+          path: ${{ runner.temp }}\artifact
       
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -51,5 +68,5 @@ jobs:
         with:
           app-name: 'app-loansim-api2'
           slot-name: 'Production'
-          package: .
+          package: ${{ runner.temp }}\artifact    # deploy the published files
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6F72C4034775454688D4BEB0CF15CA92 }}
