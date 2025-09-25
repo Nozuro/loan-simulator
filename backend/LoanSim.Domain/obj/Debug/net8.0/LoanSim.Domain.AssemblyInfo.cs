@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LoanSim.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a5075856fa19a191f88fc6f23f99088f9181c4f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3a0bfb05c6bd0b801c2319ca0ae42419a14149e")]
 [assembly: System.Reflection.AssemblyProductAttribute("LoanSim.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LoanSim.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,12 @@
+C:\Users\Nico\Desktop\Projects\Programming\loan-simulator\backend\LoanSim.Domain\bin\Debug\net8.0\LoanSim.Domain.deps.json
+C:\Users\Nico\Desktop\Projects\Programming\loan-simulator\backend\LoanSim.Domain\bin\Debug\net8.0\LoanSim.Domain.dll
+C:\Users\Nico\Desktop\Projects\Programming\loan-simulator\backend\LoanSim.Domain\bin\Debug\net8.0\LoanSim.Domain.pdb
+C:\Users\Nico\Desktop\Projects\Programming\loan-simulator\backend\LoanSim.Domain\obj\Debug\net8.0\LoanSim.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nico\Desktop\Projects\Programming\loan-simulator\backend\LoanSim.Domain\obj\Debug\net8.0\LoanSim.Domain.AssemblyInfoInputs.cache
+C:\Users\Nico\Desktop\Projects\Programming\loan-simulator\backend\LoanSim.Domain\obj\Debug\net8.0\LoanSim.Domain.AssemblyInfo.cs
+C:\Users\Nico\Desktop\Projects\Programming\loan-simulator\backend\LoanSim.Domain\obj\Debug\net8.0\LoanSim.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Nico\Desktop\Projects\Programming\loan-simulator\backend\LoanSim.Domain\obj\Debug\net8.0\LoanSim.Domain.sourcelink.json
+C:\Users\Nico\Desktop\Projects\Programming\loan-simulator\backend\LoanSim.Domain\obj\Debug\net8.0\LoanSim.Domain.dll
+C:\Users\Nico\Desktop\Projects\Programming\loan-simulator\backend\LoanSim.Domain\obj\Debug\net8.0\refint\LoanSim.Domain.dll
+C:\Users\Nico\Desktop\Projects\Programming\loan-simulator\backend\LoanSim.Domain\obj\Debug\net8.0\LoanSim.Domain.pdb
+C:\Users\Nico\Desktop\Projects\Programming\loan-simulator\backend\LoanSim.Domain\obj\Debug\net8.0\ref\LoanSim.Domain.dll

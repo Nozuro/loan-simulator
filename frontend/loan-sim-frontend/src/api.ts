@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    // baseURL: import.meta.env.API_BASE,
-    baseURL: "https://app-loansim-api2-f6eybfd6g8gqe9hc.westus3-01.azurewebsites.net",
+    baseURL: import.meta.env.VITE_API_BASE,
     timeout: 10000,
 });
 
