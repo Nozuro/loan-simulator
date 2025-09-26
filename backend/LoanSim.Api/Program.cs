@@ -1,6 +1,8 @@
 using LoanSim.Domain;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.ApplicationInsights;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,8 @@ builder.Services.AddCors(o =>
         )
     )
 );
+
+builder.Services.AddApplicationInsightsTelemetry();
 
 var app = builder.Build();
 

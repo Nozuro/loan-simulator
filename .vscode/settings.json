@@ -1,3 +1,5 @@
 {
-    "razor.format.codeBlockBraceOnNextLine": true
+    "razor.format.codeBlockBraceOnNextLine": true,
+    "workbench.list.openMode": "doubleClick",
+    "workbench.tree.indent": 20
 }
