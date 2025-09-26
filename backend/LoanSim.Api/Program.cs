@@ -30,11 +30,18 @@ app.UseSwagger();
 app.UseSwaggerUI();
 app.UseCors();
 
-app.MapPost("/api/loans/calc", (LoanRequest req, ILoanService svc) => {
+app.MapPost("/api/loans/calc", (LoanRequest req, ILoanService svc, TelemetryClient telemetry) => {
+    telemetry.TrackEvent("LoanCalculation", new Dictionary<string, string> {
+        { "Principal", req.Principal.ToString() },
+        { "Rate", req.AnnualRatePercent.ToString() },
+        { "Term", req.TermMonths.ToString() }
+    });
+
     var result = svc.Calculate(req);
     return Results.Ok(result);
 })
 .WithName("CalcLoan");
+
 
 app.Run();
 
